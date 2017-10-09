@@ -28,11 +28,21 @@ public class Tester {
 
         Line3D line = new Line3D(new Point3D(1,2,3), new Vector3D(2,3,4));
         System.out.println(line.parametricEquation());
+
+        Plane3D plane = new Plane3D(new Vector3D(2,-8,5), new Point3D(1,-2,0));
+        System.out.println(plane);
+
+        Plane3D plane1 = new Plane3D(3, 6, -3, -4);
+        Point3D point = new Point3D(0,0,1);
+        System.out.println(Plane3D.distance(plane1, point));
+
+        Plane3D plane2 = new Plane3D(1, 2, -1, 1);
+        System.out.println(Plane3D.distance(plane1, plane2));
     }
 
     public static void printArray(double[] a) {
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
+        for (double num: a) {
+            System.out.print(num + " ");
         }
         System.out.println();
     }
