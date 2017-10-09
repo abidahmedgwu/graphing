@@ -38,6 +38,12 @@ public class Tester {
 
         Plane3D plane2 = new Plane3D(1, 2, -1, 1);
         System.out.println(Plane3D.distance(plane1, plane2));
+
+        Point3D p1 = new Point3D(1,1,1);
+        Point3D p2 = new Point3D(-1,1,0);
+        Point3D p3 = new Point3D(2,0,3);
+        Plane3D plane3 = new Plane3D(p1, p2, p3);
+        System.out.println(plane3);
     }
 
     public static void printArray(double[] a) {

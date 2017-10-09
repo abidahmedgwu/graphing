@@ -5,9 +5,9 @@
 public class Plane3D {
 
     // Instance Variables
-    private double a; // a is the x direction of the normal vector
-    private double b; // b is the y direction of the normal vector
-    private double c; // c is the z direction of the normal vector
+    private double a; // a is the x direction of the normal vector to the plane
+    private double b; // b is the y direction of the normal vector to the plane
+    private double c; // c is the z direction of the normal vector to the plane
     private double d; // d is the d in the equation ax + by + cz + d = 0
     private Vector3D direction; // direction is the direction of the normal vector
 
@@ -39,6 +39,22 @@ public class Plane3D {
         direction = new Vector3D(a,b,c);
     }
 
+    // Used if three Point3Ds are given.
+    // Creates a plane using 3 Point3Ds.
+    public Plane3D(Point3D p1, Point3D p2, Point3D p3) {
+        // Creates two vectors using the three points
+        Vector3D n1 = Vector3D.getVector3D(p1, p2);
+        Vector3D n2 = Vector3D.getVector3D(p1, p3);
+        // Gets the direction of the normal vector of the plane by getting the cross product of n1 and n2
+        direction = Vector3D.crossProduct(n1, n2);
+        // Calls a different constructor to create a Plane3D
+        Plane3D helperPlane = new Plane3D(direction, p1);
+        a = helperPlane.getA();
+        b = helperPlane.getB();
+        c = helperPlane.getC();
+        d = helperPlane.getD();
+    }
+
     // Accessor methods
     public double getA() {
         return a;
@@ -67,7 +83,8 @@ public class Plane3D {
 
     // Returns the distance between a plane and a point
     public static double distance(Plane3D plane, Point3D point) {
-        return (Math.abs(plane.getA()*point.getX() + plane.getB()*point.getY() + plane.getC()*point.getZ() + plane.getD()))/(plane.getDirection().getMagnitude());
+        return (Math.abs(plane.getA()*point.getX() + plane.getB()*point.getY() + plane.getC()*point.getZ()
+                + plane.getD()))/(plane.getDirection().getMagnitude());
     }
 
     // Returns the distance between two planes
