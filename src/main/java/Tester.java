@@ -1,3 +1,5 @@
+import org.jzy3d.colors.Color;
+import org.jzy3d.plot3d.builder.Mapper;
 
 public class Tester {
 
@@ -45,7 +47,10 @@ public class Tester {
         Plane3D plane3 = new Plane3D(p1, p2, p3);
         System.out.println(plane3);
 
-        plane3.graph();
+        Mapper mapper = plane3.getMapper();
+        Grapher.graph(mapper);
+        Grapher.graph(mapper, -100, 200, 100, 0, 300, 20);
+        Grapher.graph(mapper, "My title", null, 1000, 750);
     }
 
     public static void printArray(double[] a) {

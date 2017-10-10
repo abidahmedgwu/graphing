@@ -22,6 +22,12 @@ public class Plane3D {
     private double c; // c is the z direction of the normal vector to the plane
     private double d; // d is the d in the equation ax + by + cz + d = 0
     private Vector3D direction; // direction is the direction of the normal vector
+    // Function of the Plane3D in terms of f(x,y)
+    private Mapper mapper = new Mapper() {
+        public double f(double x, double y) {
+            return (-1 * a * x - b * y - d) / c;
+        }
+    };
 
     // Constructors
     public Plane3D() {
@@ -29,7 +35,7 @@ public class Plane3D {
         b = 0;
         c = 0;
         d = 0;
-        direction = new Vector3D(a,b,c);
+        direction = new Vector3D(a, b, c);
     }
 
     // Used if the direction and point are given
@@ -37,7 +43,7 @@ public class Plane3D {
         a = direction.getX();
         b = direction.getY();
         c = direction.getZ();
-        d = -1*a*point.getX()-b*point.getY()-c*point.getZ();
+        d = -1 * a * point.getX() - b * point.getY() - c * point.getZ();
         this.direction = direction;
     }
 
@@ -48,7 +54,7 @@ public class Plane3D {
         this.b = b;
         this.c = c;
         this.d = d;
-        direction = new Vector3D(a,b,c);
+        direction = new Vector3D(a, b, c);
     }
 
     // Used if three Point3Ds are given.
@@ -88,6 +94,10 @@ public class Plane3D {
         return direction;
     }
 
+    public Mapper getMapper() {
+        return mapper;
+    }
+
     // toString method
     public String toString() {
         return a + "x + " + b + "y + " + c + "z + " + d + " = 0";
@@ -95,40 +105,14 @@ public class Plane3D {
 
     // Returns the distance between a plane and a point
     public static double distance(Plane3D plane, Point3D point) {
-        return (Math.abs(plane.getA()*point.getX() + plane.getB()*point.getY() + plane.getC()*point.getZ()
-                + plane.getD()))/(plane.getDirection().getMagnitude());
+        return (Math.abs(plane.getA() * point.getX() + plane.getB() * point.getY() + plane.getC() * point.getZ()
+                + plane.getD())) / (plane.getDirection().getMagnitude());
     }
 
     // Returns the distance between two planes
     public static double distance(Plane3D p1, Plane3D p2) {
         double z;
-        z = (0-p2.getD())/p2.getC(); // Let x=y=0. Solve for z
-        return distance(p1, new Point3D(0,0,z));
-    }
-
-    // Graphs the plane with default settings
-    public void graph() {
-        // Define a function in terms of f(x,y)
-        Mapper mapper = new Mapper() {
-            public double f(double x, double y) {
-                return (-1 * a * x - b * y - d) / c;
-            }
-        };
-
-        // Define the range of the graph and the interval of points
-        Range range = new Range(-150, 150);
-        int steps = 50;
-
-        // Create a surface for the function
-        Shape surface = Builder.buildOrthonormal(new OrthonormalGrid(range, steps), mapper);
-        surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), range));
-        surface.setFaceDisplayed(true);
-        surface.setWireframeDisplayed(false);
-        surface.setWireframeColor(Color.BLACK);
-
-        // Create a chart for the surface and add the surface to it
-        Chart chart = new AWTChart(Quality.Advanced);
-        chart.add(surface);
-        chart.open(toString(), 600, 600);
+        z = (0 - p2.getD()) / p2.getC(); // Let x=y=0. Solve for z
+        return distance(p1, new Point3D(0, 0, z));
     }
 }
