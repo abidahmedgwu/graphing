@@ -2,6 +2,8 @@
 // 10-9-17
 // Class that creates a 3D Plane
 
+import org.jzy3d.plot3d.builder.Mapper;
+
 public class Plane3D {
 
     // Instance Variables
@@ -94,4 +96,8 @@ public class Plane3D {
         return distance(p1, new Point3D(0,0,z));
     }
 
+    // Graphs the plane with default settings
+    public void graph() {
+        
+    }
 }

@@ -7,5 +7,54 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library name="jzy3d">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-api/src/api" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-api/src/awt" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-api/src/bridge" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-api/src/swing" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-api/src/tests" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-depthpeeling/src/api" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-depthpeeling/src/trials" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-javafx/src/main/java" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-jdt-core/src/main/java" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-jdt-core/src/test/java" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-svm-mapper/src/demos" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-svm-mapper/src/svm3d" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-swt/src/main/java" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-tools-libsvm/src/demos" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-tools-libsvm/src/instantsvm" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-tools-libsvm/src/libsvm" />
+          <root url="file://$USER_HOME$/jzy3d/jzy3d-tutorials/src/main/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="applet-launcher" level="project" />
+    <orderEntry type="library" name="swt" level="project" />
+    <orderEntry type="library" name="jogl" level="project" />
+    <orderEntry type="library" name="org.convexhull" level="project" />
+    <orderEntry type="library" name="org.jzy3d-0.8.4" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/gluegen-rt.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/org.jzy3d-0.8.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/org.convexhull.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/jogl.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/opencsv-2.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/swt-debug.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/swt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/libs/org.jzy3d-0.8.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/org.convexhull.jar!/" />
+          <root url="file://$MODULE_DIR$/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
