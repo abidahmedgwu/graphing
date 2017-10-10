@@ -44,6 +44,8 @@ public class Tester {
         Point3D p3 = new Point3D(2,0,3);
         Plane3D plane3 = new Plane3D(p1, p2, p3);
         System.out.println(plane3);
+
+        plane3.graph();
     }
 
     public static void printArray(double[] a) {
