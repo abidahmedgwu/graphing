@@ -98,6 +98,6 @@ public class Plane3D {
 
     // Graphs the plane with default settings
     public void graph() {
-        
+
     }
 }

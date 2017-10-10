@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="applet-launcher">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/applet-launcher.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

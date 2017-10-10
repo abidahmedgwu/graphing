@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="swt">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/junit-4.11-SNAPSHOT-20120805-1225.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/log4j-1.2.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jogl-all.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/opencsv-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gluegen-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gluegen.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/swt-debug.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/junit-4.11-SNAPSHOT-20120805-1225-src.jar!/" />
+    </SOURCES>
+  </library>
+</component>
