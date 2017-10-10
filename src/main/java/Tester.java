@@ -4,7 +4,7 @@ import org.jzy3d.plot3d.builder.Mapper;
 public class Tester {
 
     public static void main(String[] args) {
-        /*Vector3D a = new Vector3D(1, 1, 1);
+        Vector3D a = new Vector3D(1, 1, 1);
         Vector3D b = new Vector3D(0, 3, 4);
 
         System.out.println(Vector3D.dotProduct(a, b));
@@ -39,7 +39,7 @@ public class Tester {
         System.out.println(Plane3D.distance(plane1, point));
 
         Plane3D plane2 = new Plane3D(1, 2, -1, 1);
-        System.out.println(Plane3D.distance(plane1, plane2));*/
+        System.out.println(Plane3D.distance(plane1, plane2));
 
         Point3D p1 = new Point3D(1,1,1);
         Point3D p2 = new Point3D(-1,1,0);
@@ -49,8 +49,10 @@ public class Tester {
 
         Mapper mapper = plane3.getMapper();
         Grapher.graph(mapper);
-        Grapher.graph(mapper, -100, 200, 100, 0, 300, 20);
+        Grapher.graph(mapper, -200, 200, 100, -200, 200, 100);
         Grapher.graph(mapper, "My title", null, 1000, 750);
+        Grapher.graph(mapper, plane3.toString(), null, 1000, 1000, -500, 500, 250,
+                -100, 100, 50, true);
     }
 
     public static void printArray(double[] a) {
