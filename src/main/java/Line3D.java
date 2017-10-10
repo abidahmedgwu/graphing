@@ -21,6 +21,14 @@ public class Line3D {
         this.direction = direction;
     }
 
+    // Constructor that creates a Line3D from two points
+    public Line3D(Point3D point1, Point3D point2) {
+        this.point = point1;
+        this.direction = Vector3D.getVector3D(point1, point2);
+    }
+
+    // Constructor that creates a Line3D from the intersection of two planes.
+
     // Accessor methods
     public Point3D getPoint() {
         return point;
