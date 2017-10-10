@@ -2,6 +2,7 @@
 // 10-9-17
 // Class that creates a 3D Plane
 
+import org.jzy3d.chart.AWTChart;
 import org.jzy3d.chart.Chart;
 import org.jzy3d.colors.Color;
 import org.jzy3d.colors.ColorMapper;
@@ -11,6 +12,7 @@ import org.jzy3d.plot3d.builder.Builder;
 import org.jzy3d.plot3d.builder.Mapper;
 import org.jzy3d.plot3d.builder.concrete.OrthonormalGrid;
 import org.jzy3d.plot3d.primitives.Shape;
+import org.jzy3d.plot3d.rendering.canvas.Quality;
 
 public class Plane3D {
 
@@ -105,7 +107,7 @@ public class Plane3D {
     }
 
     // Graphs the plane with default settings
-    public Chart graph() {
+    public void graph() {
         // Define a function in terms of f(x,y)
         Mapper mapper = new Mapper() {
             public double f(double x, double y) {
@@ -114,21 +116,19 @@ public class Plane3D {
         };
 
         // Define the range of the graph and the interval of points
-        Range xRange = new Range(-150, 150);
-        Range yRange = new Range(-150, 150);
+        Range range = new Range(-150, 150);
         int steps = 50;
 
         // Create a surface for the function
-        Shape surface = (Shape) Builder.buildOrthonormal(new OrthonormalGrid(xRange, steps, yRange, steps), mapper);
-        surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), surface.getBounds().getZmin(),
-                surface.getBounds().getZmax(), new Color(1,1,1, .5f)));
-        surface.setFaceDisplayed(true); // Draws the surface's content
-        surface.setWireframeDisplayed(true); // Draws the border
-        surface.setWireframeColor(Color.BLACK); // Makes the border black
+        Shape surface = Builder.buildOrthonormal(new OrthonormalGrid(range, steps), mapper);
+        surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), range));
+        surface.setFaceDisplayed(true);
+        surface.setWireframeDisplayed(false);
+        surface.setWireframeColor(Color.BLACK);
 
         // Create a chart for the surface and add the surface to it
-        Chart chart = new Chart();
-        chart.getScene().getGraph().add(surface);
-        return chart;
+        Chart chart = new AWTChart(Quality.Advanced);
+        chart.add(surface);
+        chart.open(toString(), 600, 600);
     }
 }

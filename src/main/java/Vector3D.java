@@ -2,6 +2,7 @@
 // 10-4-17
 // A class that creates a 3 dimensional vector
 
+
 public class Vector3D {
 
     // Instance variables

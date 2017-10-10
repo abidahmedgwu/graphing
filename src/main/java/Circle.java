@@ -1,6 +1,7 @@
 // Abid Ahmed
 // 10-2-17
 // A class that creates a 2 dimensional circle
+
 public class Circle {
 
     // Instance variables

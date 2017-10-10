@@ -1,7 +1,7 @@
 // Abid Ahmed
 // 10-4-17
-
 // Class that derives functions
+
 public class Derivative {
 
     /* Derives polynomial functions using power rule.
