@@ -99,7 +99,7 @@ public class Matrix {
         return new Matrix(newMatrix);
     }
 
-    // Multiplies a matrix by a scalar
+    // Multiplies a matrix by a scalar t
     public static Matrix multiply(Matrix m1, double t) {
         double[][] newMatrix = new double[m1.rows()][m1.columns()];
         for (int i = 0; i < newMatrix.length; i++) {
@@ -108,5 +108,31 @@ public class Matrix {
             }
         }
         return new Matrix(newMatrix);
+    }
+
+    // Divides a matrix by a scalar t
+    public static Matrix divide(Matrix m1, double t) {
+        return multiply(m1, 1/t);
+    }
+
+    // Transposes a matrix
+    public Matrix transpose() {
+        double[][] newMatrix = new double[columns()][rows()];
+        for (int i = 0; i < newMatrix.length; i++) {
+            for (int j = 0; j < newMatrix[0].length; j++) {
+                newMatrix[j][i] = matrix[i][j];
+            }
+        }
+        return new Matrix(newMatrix);
+    }
+
+    // Returns the inverse of a two by two matrix.
+    public Matrix inverse2x2() {
+        if (rows() != 2 && columns() != 2) {
+            return null;
+        }
+        double[][] newMatrix = {{matrix[1][1], -1*matrix[0][1]}, {-1*matrix[1][0], matrix[0][0]}};
+        double determinant = (matrix[0][0]*matrix[1][1]) - (matrix[1][0]*matrix[0][1]);
+        return divide(new Matrix(newMatrix), determinant);
     }
 }

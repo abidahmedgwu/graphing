@@ -30,15 +30,16 @@ public class Line3D {
     // Constructor that creates a Line3D from the intersection of two planes.
     public Line3D(Plane3D plane1, Plane3D plane2) {
         // Get the direction of the line that intersects the plane
-        Vector3D direction = Vector3D.crossProduct(plane1.getDirection(), plane2.getDirection());
+        direction = Vector3D.crossProduct(plane1.getDirection(), plane2.getDirection());
         // To get the point, let z = 0 and solve for the resulting system of equations
-        // system is the left matrix
-        double[][] system = {{plane1.getA(), plane1.getB()},
+        // leftSide is the leftSide of the equation
+        // rightSide is the rightSide of the equation
+        double[][] leftSide = {{plane1.getA(), plane1.getB()},
                              {plane2.getA(), plane2.getB()}};
-        double[][] results = {{-1*plane1.getD()},
+        double[][] rightSide = {{-1*plane1.getD()},
                               {-1*plane2.getD()}};
-
-
+        Matrix solution = Matrix.multiply(new Matrix(leftSide).inverse2x2(), new Matrix(rightSide));
+        point = new Point3D(solution.getMatrix()[0][0], solution.getMatrix()[1][0], 0);
     }
 
     // Accessor methods

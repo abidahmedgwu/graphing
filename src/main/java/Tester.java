@@ -51,8 +51,8 @@ public class Tester {
         /*Grapher.graph(mapper);
         Grapher.graph(mapper, -200, 200, 100, -200, 200, 100);
         Grapher.graph(mapper, "My title", null, 1000, 750);*/
-        //Grapher.graph(mapper, plane3.toString(), null, 1000, 1000, -500, 500, 250,
-          //      -100, 100, 50, true);
+        Grapher.graph(mapper, plane3.toString(), Color.BLUE, 1000, 1000, -500, 500, 250,
+                -100, 100, 50, false);
         double[][] arr = {{1,2}, {3,4}};
         Matrix matrix = new Matrix(arr);
         System.out.println(matrix);
@@ -63,6 +63,9 @@ public class Tester {
         Matrix m2 = new Matrix(arr2);
         Matrix mult = Matrix.multiply(m1,2);
         System.out.println(mult);
+
+        Line3D intersectingPlanes = new Line3D(new Plane3D(2,-1,1,-5), new Plane3D(1,1,-1,-1));
+        System.out.println(intersectingPlanes);
     }
 
     public static void printArray(double[] a) {
