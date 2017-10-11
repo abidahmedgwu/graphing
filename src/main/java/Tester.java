@@ -48,11 +48,21 @@ public class Tester {
         System.out.println(plane3);
 
         Mapper mapper = plane3.getMapper();
-        Grapher.graph(mapper);
+        /*Grapher.graph(mapper);
         Grapher.graph(mapper, -200, 200, 100, -200, 200, 100);
-        Grapher.graph(mapper, "My title", null, 1000, 750);
-        Grapher.graph(mapper, plane3.toString(), null, 1000, 1000, -500, 500, 250,
-                -100, 100, 50, true);
+        Grapher.graph(mapper, "My title", null, 1000, 750);*/
+        //Grapher.graph(mapper, plane3.toString(), null, 1000, 1000, -500, 500, 250,
+          //      -100, 100, 50, true);
+        double[][] arr = {{1,2}, {3,4}};
+        Matrix matrix = new Matrix(arr);
+        System.out.println(matrix);
+
+        double[][] arr1 = {{1,2,3}, {4,5,6}};
+        double[][] arr2 = {{7,8}, {9,10}, {11, 12}};
+        Matrix m1 = new Matrix(arr1);
+        Matrix m2 = new Matrix(arr2);
+        Matrix mult = Matrix.multiply(m1,2);
+        System.out.println(mult);
     }
 
     public static void printArray(double[] a) {
