@@ -3,7 +3,7 @@
 // A class that creates a 3 dimensional vector
 
 
-public class Vector3D {
+public class Vector3D extends Vector {
 
     // Instance variables
     private double x;
@@ -12,16 +12,18 @@ public class Vector3D {
 
     // Default Constructor
     public Vector3D() {
-        x = 0;
-        y = 0;
-        z = 0;
+        super(new double[] {0,0,0});
+        x = getComponents()[0];
+        y = getComponents()[1];
+        z = getComponents()[2];
     }
 
     // Standard Constructor
     public Vector3D(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        super(new double[] {x,y,z});
+        this.x = getComponents()[0];
+        this.y = getComponents()[1];
+        this.z = getComponents()[2];
     }
 
     // Accessor Methods
@@ -35,32 +37,6 @@ public class Vector3D {
 
     public double getZ() {
         return z;
-    }
-
-    // Other methods
-    public String toString() {
-        return "<" + x + ", " + y + ", " + z + ">";
-    }
-
-    // Calculates the length/magnitude of the vector
-    public double getMagnitude() {
-        return Math.sqrt(x*x + y*y + z*z);
-    }
-
-    // Calculates the unit vector
-    public Vector3D getUnitVector() {
-        return new Vector3D(x/getMagnitude(), y/getMagnitude(), z/getMagnitude());
-    }
-
-    // Calculates the dot product of two given vectors
-    public static double dotProduct(Vector3D a, Vector3D b) {
-        return a.getX()*b.getX() + a.getY()*b.getY() + a.getZ()*b.getZ();
-    }
-
-    // Calculates the dot product of two vectors using the magnitude of a and b
-    // and the angle (in degrees) between a and b
-    public static double dotProduct(double aMagnitude, double bMagnitude, double theta) {
-        return aMagnitude*bMagnitude*Math.cos(theta);
     }
 
     // Calculates the cross product of two given vectors
@@ -77,38 +53,6 @@ public class Vector3D {
         return aMagnitude*bMagnitude*Math.sin(theta);
     }
 
-    // Adds two given vectors
-    public static Vector3D add (Vector3D a, Vector3D b) {
-        return new Vector3D(a.getX() + b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ());
-    }
-
-    // Subtracts two given vectors
-    public static Vector3D subtract(Vector3D a, Vector3D b) {
-        return new Vector3D(a.getX() - b.getX(), a.getY() - b.getY(), a.getZ() - b.getZ());
-    }
-
-    // Multiplies a vector and a scalar
-    public static Vector3D multiply (Vector3D a, double t) {
-        return new Vector3D(t*a.getX(), t*a.getY(), t*a.getZ());
-    }
-
-    // Divides a vector and a scalar
-    public static Vector3D divide (Vector3D a, double t) {
-        return new Vector3D(a.getX()/t, a.getY()/t, a.getZ()/t);
-    }
-
-    // Calculates which vector is larger (by magnitude).
-    // Returns -1 if a < b. Returns 0 if a = b, Returns 1 if a > b
-    public static int compareTo (Vector3D a, Vector3D b) {
-        if (a.getMagnitude() < b.getMagnitude()) {
-            return -1;
-        } else if (a.getMagnitude() > b.getMagnitude()) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
     // Calculates the scalar projection of Vector 3D b onto Vector 3D a
     public static double comp (Vector3D a, Vector3D b) {
         return dotProduct(a,b) / a.getMagnitude();
@@ -116,7 +60,7 @@ public class Vector3D {
 
     // Calculates the projection of Vector3D b onto Vector3D a
     public static Vector3D proj (Vector3D a, Vector3D b) {
-        return multiply(a.getUnitVector(), comp(a,b));
+        return (Vector3D)multiply(a.getUnitVector(), comp(a,b));
     }
 
     // Creates a vector from two Point3Ds

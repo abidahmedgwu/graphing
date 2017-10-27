@@ -51,8 +51,8 @@ public class Tester {
         /*Grapher.graph(mapper);
         Grapher.graph(mapper, -200, 200, 100, -200, 200, 100);
         Grapher.graph(mapper, "My title", null, 1000, 750);*/
-        Grapher.graph(mapper, plane3.toString(), Color.BLUE, 1000, 1000, -500, 500, 250,
-                -100, 100, 50, false);
+        //Grapher.graph(mapper, plane3.toString(), Color.BLUE, 1000, 1000, -500, 500, 250,
+          //      -100, 100, 50, false);
         double[][] arr = {{1,2}, {3,4}};
         Matrix matrix = new Matrix(arr);
         System.out.println(matrix);

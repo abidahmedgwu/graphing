@@ -14,7 +14,7 @@ import org.jzy3d.plot3d.builder.concrete.OrthonormalGrid;
 import org.jzy3d.plot3d.primitives.Shape;
 import org.jzy3d.plot3d.rendering.canvas.Quality;
 
-public class Grapher {
+public class Grapher3D {
 
     // Graphs the plane with default settings
     public static void graph(Mapper mapper) {
